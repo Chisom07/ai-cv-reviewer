@@ -1,4 +1,5 @@
-const API = window.location.protocol === 'file:' ? 'http://localhost:5000/cv' : `${window.location.origin}/cv`;
+const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+const API = window.location.protocol === 'file:' || isLocalhost ? 'http://localhost:5000/cv' : `${window.location.origin}/cv`;
 
 // Drag and drop functionality
 document.addEventListener('DOMContentLoaded', function() {
@@ -92,7 +93,8 @@ async function uploadCV() {
     });
 
     if (!uploadRes.ok) {
-      throw new Error('Failed to upload file');
+      const errorText = await uploadRes.text();
+      throw new Error(`Failed to upload file (${uploadRes.status} ${uploadRes.statusText}): ${errorText}`);
     }
 
     const uploadData = await uploadRes.json();

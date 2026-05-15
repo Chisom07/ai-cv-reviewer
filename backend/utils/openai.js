@@ -2,6 +2,10 @@ const axios = require('axios');
 const axiosRetryModule = require('axios-retry');
 const axiosRetry = axiosRetryModule.default ?? axiosRetryModule;
 
+if (!process.env.OPENAI_API_KEY) {
+  throw new Error('Missing OPENAI_API_KEY environment variable');
+}
+
 const openaiClient = axios.create({
   baseURL: 'https://api.openai.com/v1',
   headers: {
