@@ -2,14 +2,36 @@
 <html>
 <head>
 <link rel="stylesheet" href="style.css">
+<title>AI CV Reviewer</title>
 </head>
 <body>
+<div class="header">
+  <h1>AI CV Reviewer</h1>
+  <p>Get instant feedback on your CV with AI-powered analysis</p>
+</div>
+
+<div class="nav">
+  <div class="nav-links">
+    <a href="index.html" class="active">Upload CV</a>
+    <a href="history.html">History</a>
+  </div>
+</div>
+
 <div class="container">
   <div class="card">
-    <h2>Upload CV</h2>
-    <input type="file" id="cvFile">
-    <button onclick="uploadCV()">Upload</button>
-    <p id="loading"></p>
+    <h2>Upload Your CV</h2>
+    <div class="upload-area" id="uploadArea">
+      <div class="upload-icon">📄</div>
+      <p>Drag & drop your CV here or click to browse</p>
+      <input type="file" id="cvFile" accept=".pdf" style="display: none;">
+    </div>
+    <button id="uploadBtn" type="button">Analyze CV</button>
+    <div id="loading" class="loading" style="display: none;">
+      <div class="spinner"></div>
+      <p>Analyzing your CV...</p>
+    </div>
+    <div id="error" class="error" style="display: none;"></div>
+    <div id="success" class="success" style="display: none;"></div>
   </div>
 </div>
 <script src="app.js"></script>

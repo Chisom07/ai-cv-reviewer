@@ -2,15 +2,50 @@
 <html>
 <head>
 <link rel="stylesheet" href="style.css">
+<title>CV Analysis Results</title>
 </head>
 <body>
+<div class="header">
+  <h1>CV Analysis Results</h1>
+  <p>Your AI-powered CV evaluation</p>
+</div>
+
+<div class="nav">
+  <div class="nav-links">
+    <a href="index.html">Upload CV</a>
+    <a href="jobs.html">Find Jobs</a>
+    <a href="history.html">History</a>
+  </div>
+</div>
+
 <div class="container">
   <div class="card">
-    <h2>Score: <span id="score"></span></h2>
-    <div id="skills"></div>
-    <p id="gaps"></p>
-    <p id="tips"></p>
-    <p id="level"></p>
+    <div class="score-display">
+      <div class="score-circle" id="scoreCircle">
+        <div class="score-text" id="score">0</div>
+      </div>
+      <h2>CV Score</h2>
+      <p id="level"></p>
+    </div>
+
+    <div class="section">
+      <h3>🎯 Skills Identified</h3>
+      <div id="skills"></div>
+    </div>
+
+    <div class="section">
+      <h3>⚠️ Areas for Improvement</h3>
+      <p id="gaps"></p>
+    </div>
+
+    <div class="section">
+      <h3>💡 Improvement Tips</h3>
+      <p id="tips"></p>
+    </div>
+
+    <div style="text-align: center; margin-top: 30px;">
+      <button onclick="window.location.href='jobs.html'">Find Matching Jobs</button>
+    </div>
   </div>
 </div>
 <script src="app.js"></script>
