@@ -1,4 +1,4 @@
-const API = 'http://localhost:5000/cv';
+const API = window.location.protocol === 'file:' ? 'http://localhost:5000/cv' : `${window.location.origin}/cv`;
 
 // Drag and drop functionality
 document.addEventListener('DOMContentLoaded', function() {

@@ -1,0 +1,27 @@
+services:
+  - type: web_service
+    name: ai-cv-reviewer
+    env: node
+    plan: free
+    branch: main
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: PORT
+        value: 5000
+      - key: DATABASE_URL
+        fromSecret: DATABASE_URL
+      - key: OPENAI_API_KEY
+        fromSecret: OPENAI_API_KEY
+      - key: CLOUDINARY_CLOUD_NAME
+        fromSecret: CLOUDINARY_CLOUD_NAME
+      - key: CLOUDINARY_API_KEY
+        fromSecret: CLOUDINARY_API_KEY
+      - key: CLOUDINARY_API_SECRET
+        fromSecret: CLOUDINARY_API_SECRET
+      - key: ADZUNA_APP_ID
+        fromSecret: ADZUNA_APP_ID
+      - key: ADZUNA_APP_KEY
+        fromSecret: ADZUNA_APP_KEY
+    healthCheckPath: /
+    autoDeploy: true
